@@ -8,11 +8,12 @@ export class BookService{
 
     mybook:Book;
     bookarr:Book[];
+    favbooks:Book[];
 
     constructor(private http:Http){
         this.bookarr = []; 
-
-        this.http.get(`http://localhost:2001/Books`).pipe(map((res:Response)=>res.json()))
+        this.favbooks= [];
+        this.http.get(`http://localhost:5001/Books`).pipe(map((res:Response)=>res.json()))
         .subscribe((res)=>{
             this.bookarr = res;
         })
@@ -27,5 +28,28 @@ export class BookService{
             }
         }
     }
+    favBook()
+    {
+        for(var i=0;i<this.bookarr.length;i++){
+          //  console.log("entered for:"+this.bookarr[i].favbook);
+            if(this.bookarr[i].favbook === true){
+                this.favbooks.push(this.bookarr[i]);
+            //    console.log("Entered if:"+this.favbooks.slice());
 
+
+            }
+        }
+        
+        
+        return this.favbooks.slice();
+        //console.log("eof:"+this.bookarr.slice());
+
+    }
 }
+
+
+
+
+
+
+    

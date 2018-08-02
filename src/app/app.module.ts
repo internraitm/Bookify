@@ -13,6 +13,7 @@ import { SearchbookComponent } from './components/searchbook/searchbook.componen
 import { BookService } from './services/book.service';
 import { AdvancedSearchComponent } from './components/advancesearch/advancesearch.coponent';
 import { HttpModule } from '@angular/http';
+import { UserProfileComponent } from './components/userprofile/userprof.component';
 
 const approutes:Routes = [
   {
@@ -32,6 +33,10 @@ const approutes:Routes = [
     path: 'advancesearch',
     component: AdvancedSearchComponent
   },
+  {
+    path: 'userprofile',
+    component: UserProfileComponent
+  },
   {  
     path:'dashboard',
     canActivate: [AuthguardGuard],
@@ -49,7 +54,8 @@ const approutes:Routes = [
     FooterComponent,
     DashboardComponent,
     SignupformComponent,
-    SearchbookComponent
+    SearchbookComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
