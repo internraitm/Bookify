@@ -10,12 +10,16 @@ import { UserService } from './services/user.service';
 import { AuthguardGuard } from "./utils/authguard.guard";
 import { SignupformComponent } from './components/signupform/signupform.component';
 import { SearchbookComponent } from './components/searchbook/searchbook.component';
+import { BookService } from './services/book.service';
+import { AdvancedSearchComponent } from './components/advancesearch/advancesearch.coponent';
+import { HttpModule } from '@angular/http';
 
 const approutes:Routes = [
   {
     path:'',
     component:SearchbookComponent
   },
+ 
   {
     path:'login',
     component:LoginformComponent
@@ -23,6 +27,10 @@ const approutes:Routes = [
   {
     path: 'signup',
     component:SignupformComponent
+  },
+  {
+    path: 'advancesearch',
+    component: AdvancedSearchComponent
   },
   {  
     path:'dashboard',
@@ -36,7 +44,7 @@ const approutes:Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    
+    AdvancedSearchComponent,
     LoginformComponent,
     FooterComponent,
     DashboardComponent,
@@ -46,9 +54,10 @@ const approutes:Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot(approutes)
   ],
-  providers: [UserService,AuthguardGuard],
+  providers: [UserService,AuthguardGuard,BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
