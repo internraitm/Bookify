@@ -21,9 +21,9 @@ export class BookService{
 
     search(b:Book){
         for(var i=0;i<this.bookarr.length;i++){
-            /*if(this.bookarr[i].id == b.id && this.bookarr[i].bookname == b.bookname && 
-            this.bookarr[i].bookauthor == b.bookauthor && this.bookarr[i].bookpublisher == b.bookpublisher)*/
-            if(this.bookarr[i].isbn = b.isbn){
+            if(this.bookarr[i].bookname == b.bookname && 
+            this.bookarr[i].bookauthor == b.bookauthor && this.bookarr[i].bookpublisher == b.bookpublisher)
+            /*if(this.bookarr[i].isbn = b.isbn)*/{
                return true;
             }
         }
