@@ -4,16 +4,22 @@
     
     <!-- Links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
-          <a routerLink = "/login">Login</a>
+      <li *ngIf="afAuth.user | async as user; else showLogin" class="nav-item">
+          <a routerLink = "/logout" (click)='logout()'>Logout</a>
       </li>
+      <ng-template #showLogin>
+      <li class="nav-item">
+          <a routerLink = "/login" (click)='login()'>Login</a>
+      </li>
+      </ng-template>
       <li class="nav-item">
           <a routerLink = "/signup">Sign Up</a>
       </li>
       <li class="nav-item">
         <a routerLink = "/advancesearch">Advance Search</a>
-    </li>
+      </li>
     </ul>
+
   </nav>
   
 

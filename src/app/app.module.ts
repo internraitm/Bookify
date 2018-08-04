@@ -13,6 +13,19 @@ import { SearchbookComponent } from './components/searchbook/searchbook.componen
 import { BookService } from './services/book.service';
 import { AdvancedSearchComponent } from './components/advancesearch/advancesearch.coponent';
 import { HttpModule } from '@angular/http';
+import { UserProfileComponent } from './components/userprofile/userprof.component';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+import 'firebase/auth';
+
+export const firebaseConfig={
+  apiKey: "AIzaSyDHuoMFJSYSjdySRnhltK46lwxliS6PE64",
+  authDomain: "bookify-becab.firebaseapp.com",
+  databaseURL: "https://bookify-becab.firebaseio.com",
+  projectId: "bookify-becab",
+  storageBucket: "",
+  messagingSenderId: "96961588980"
+}
 
 const approutes:Routes = [
   {
@@ -32,12 +45,20 @@ const approutes:Routes = [
     path: 'advancesearch',
     component: AdvancedSearchComponent
   },
+  {
+    path: 'userprofile',
+    component: UserProfileComponent
+  },
   {  
     path:'dashboard',
     canActivate: [AuthguardGuard],
     component: DashboardComponent
 
   }
+  /*{
+    path: 'main',
+    component: AppComponent
+  }*/
 ]
  
 
@@ -49,15 +70,18 @@ const approutes:Routes = [
     FooterComponent,
     DashboardComponent,
     SignupformComponent,
-    SearchbookComponent
+    SearchbookComponent,
+    UserProfileComponent
   ],
   imports: [
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(approutes)
   ],
-  providers: [UserService,AuthguardGuard,BookService],
+  providers: [AngularFireAuthModule,UserService,AuthguardGuard,BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

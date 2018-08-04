@@ -1,0 +1,76 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="jumbotron">
+        <h1 style="text-align: center">My Profile</h1>
+</div>
+
+
+
+
+
+
+<div class="container" style="margin-top:30px">
+        <div class="row">
+          <div class="col-sm-4" style="background-color: #f0f0f0">
+            
+            
+            <img src="https://wallpaperbrowse.com/media/images/3848765-wallpaper-images-download.jpg" class="rounded-circle" alt="Cinque Terre" width="150" height="150"> 
+            <h4>Hello,<p>Majesco</p></h4>
+            <p>Email: admin@admin.com</p>
+            <p>Contact No.: 9876543210</p>
+            <hr>
+            <h5>My Stuff</h5>
+            <div class="btn-group-vertical">  
+                    <button (click)='favBooks()' class="btn btn-primary"  >List Favorite Books</button>
+                    <button (click)='reqBooks()' class="btn btn-primary"  >Requested Books</button>
+                    <button (click)='bookOrders()' class="btn btn-primary"  >My Orders</button>
+            </div>
+            </div>
+                 
+            
+            <hr class="d-sm-none">
+          
+            <div class="col-sm-8">
+
+                    <div *ngIf="info">
+                        <h1>Personnel Information: </h1>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+
+                    </div>
+
+
+
+                    <div *ngIf='lstflag' class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Book ID</th>
+                                    <th>Book Name</th>
+                                    <th>Author</th>
+                                    <th>Publisher</th>
+                                    <th>Category</th>
+                                </tr>
+                                    
+                                </thead>
+                                <tr *ngFor='let b of bookarr'>
+                                    <td>{{b.id}}</td>
+                                    <td>{{b.bookname}}</td>
+                                    <td>{{b.bookauthor}}</td>
+                                    <td>{{b.bookpublisher}}</td>
+                                    <td>{{b.bookcategory}}</td>
+                                    
+                                </tr>
+                            </table>
+                    </div>
+       
+             </div>
+    </div>
+
+</div>
+      
+
+      
+      
+          
