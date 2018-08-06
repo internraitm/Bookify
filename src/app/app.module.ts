@@ -14,6 +14,8 @@ import { BookService } from './services/book.service';
 import { AdvancedSearchComponent } from './components/advancesearch/advancesearch.coponent';
 import { HttpModule } from '@angular/http';
 import { UserProfileComponent } from './components/userprofile/userprof.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { BookdetailsComponent } from './components/bookdetails/bookdetails.component';
 
 const approutes:Routes = [
   {
@@ -32,6 +34,10 @@ const approutes:Routes = [
   {
     path: 'advancesearch',
     component: AdvancedSearchComponent
+  },
+  {
+    path: 'bk',
+    component:BookdetailsComponent
   },
   {
     path: 'userprofile',
@@ -55,7 +61,9 @@ const approutes:Routes = [
     DashboardComponent,
     SignupformComponent,
     SearchbookComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NavbarComponent,
+    BookdetailsComponent
   ],
   imports: [
     BrowserModule,

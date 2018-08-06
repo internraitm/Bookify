@@ -6,7 +6,6 @@ export class Book{
     bookpublisher:string;
     isbn:number;
     favbook:boolean;
-
     constructor(id,bookcategory,bookname,bookauthor,bookpublisher,isbn,favbook){
         this.id = id;
         this.bookcategory = bookcategory;
