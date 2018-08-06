@@ -10,12 +10,30 @@ import { UserService } from './services/user.service';
 import { AuthguardGuard } from "./utils/authguard.guard";
 import { SignupformComponent } from './components/signupform/signupform.component';
 import { SearchbookComponent } from './components/searchbook/searchbook.component';
-import { BookService } from './services/book.service';
 import { AdvancedSearchComponent } from './components/advancesearch/advancesearch.coponent';
 import { HttpModule } from '@angular/http';
 import { UserProfileComponent } from './components/userprofile/userprof.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BookdetailsComponent } from './components/bookdetails/bookdetails.component';
+import { TestbookComponent } from './components/testbook/testbook.component';
+
+//Angular Imports
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireAuth} from 'angularfire2/auth';
+
+//Service Imports
+import { BookService } from './services/book.service';
+
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyDHuoMFJSYSjdySRnhltK46lwxliS6PE64",
+    authDomain: "bookify-becab.firebaseapp.com",
+    databaseURL: "https://bookify-becab.firebaseio.com",
+    projectId: "bookify-becab",
+    storageBucket: "bookify-becab.appspot.com",
+    messagingSenderId: "96961588980"
+}
 
 const approutes:Routes = [
   {
@@ -38,6 +56,10 @@ const approutes:Routes = [
   {
     path: 'bk',
     component:BookdetailsComponent
+  },
+  {
+    path: 'testbook',
+    component:  TestbookComponent
   },
   {
     path: 'userprofile',
@@ -63,15 +85,22 @@ const approutes:Routes = [
     SearchbookComponent,
     UserProfileComponent,
     NavbarComponent,
-    BookdetailsComponent
+    BookdetailsComponent,
+    TestbookComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(approutes)
+    RouterModule.forRoot(approutes),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [UserService,AuthguardGuard,BookService],
+  providers: [
+    UserService,
+    AuthguardGuard,
+    AngularFireAuth,
+    AngularFireDatabase,
+    BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

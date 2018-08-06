@@ -6,13 +6,13 @@ export class Book{
     bookpublisher:string;
     isbn:number;
     favbook:boolean;
-    constructor(bookname,bookauthor,bookpublisher,id,bookcategory,isbn,favbook){
-         this.id = id;
-         this.bookcategory = bookcategory;
+    constructor(bookname,bookauthor,bookpublisher){
+        //  this.id = id;
+        //  this.bookcategory = bookcategory;
         this.bookname = bookname;
         this.bookauthor = bookauthor;
         this.bookpublisher = bookpublisher;
-        this.isbn = isbn;
-        this.favbook=favbook;
+        // this.isbn = isbn;
+        // this.favbook=favbook;
     }
 }
