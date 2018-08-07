@@ -14,8 +14,15 @@ import { BookService } from './services/book.service';
 import { AdvancedSearchComponent } from './components/advancesearch/advancesearch.coponent';
 import { HttpModule } from '@angular/http';
 import { UserProfileComponent } from './components/userprofile/userprof.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { BookdetailsComponent } from './components/bookdetails/bookdetails.component';
+import { TestbookComponent } from './components/testbook/testbook.component';
+
+
+//firebase imports
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
+import {AngularFireDatabase} from 'angularfire2/database';
 import 'firebase/auth';
 
 export const firebaseConfig={
@@ -49,6 +56,14 @@ const approutes:Routes = [
     path: 'userprofile',
     component: UserProfileComponent
   },
+  {
+    path: 'bk',
+    component:BookdetailsComponent
+  },
+  {
+    path: 'testbook',
+    component:  TestbookComponent
+  },
   {  
     path:'dashboard',
     canActivate: [AuthguardGuard],
@@ -71,7 +86,10 @@ const approutes:Routes = [
     DashboardComponent,
     SignupformComponent,
     SearchbookComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NavbarComponent,
+    BookdetailsComponent,
+    TestbookComponent
   ],
   imports: [
     AngularFireAuthModule,
@@ -81,7 +99,7 @@ const approutes:Routes = [
     HttpModule,
     RouterModule.forRoot(approutes)
   ],
-  providers: [AngularFireAuthModule,UserService,AuthguardGuard,BookService],
+  providers: [AngularFireAuthModule,UserService, AngularFireDatabase,AuthguardGuard,BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

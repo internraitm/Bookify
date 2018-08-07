@@ -1,15 +1,23 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!-- Brand/logo -->
-    <a class="navbar-brand" href="#">Logo</a>
+    <a class="navbar-brand" href="#"><img width="75 px" height="75 px"  src='https://cdn.dribbble.com/users/68544/screenshots/2129380/book_1x.png'></a>
     
     <!-- Links -->
-    <ul class="navbar-nav">
-      <li *ngIf="afAuth.user | async as user; else showLogin" class="nav-item">
-          <a routerLink = "/logout" (click)='logout()'>Logout</a>
+    <ul class="navbar-nav">   
+      <!--<li *ngIf="afAuth.user | async as user; else showLogin" class="nav-item">
+          <a (click)='logout()'>Logout</a>
       </li>
       <ng-template #showLogin>
       <li class="nav-item">
-          <a routerLink = "/login" (click)='login()'>Login</a>
+          <a (click)='login()'>Login</a>
+      </li>
+      </ng-template>-->
+      <li *ngIf="afAuth.user | async as user; else showLogin" class="nav-item">
+          <a routerLink (click)='logout()'>Logout</a>
+      </li>
+      <ng-template #showLogin>
+      <li class="nav-item">
+        <a routerLink = "/login">Login</a>
       </li>
       </ng-template>
       <li class="nav-item">
@@ -17,6 +25,9 @@
       </li>
       <li class="nav-item">
         <a routerLink = "/advancesearch">Advance Search</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink = "/bk">Book Details</a>
       </li>
     </ul>
 
