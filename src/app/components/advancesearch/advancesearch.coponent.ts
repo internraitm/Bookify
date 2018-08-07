@@ -15,7 +15,7 @@ export class AdvancedSearchComponent{
 
     constructor(bookserv:BookService){
         this.bookserv = bookserv;
-        this.mybook = new Book(null,null,null,null,null,null);
+        this.mybook = new Book(null,null,null,null,null,null,null);
     }
 
     search(b:Book){
