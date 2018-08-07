@@ -14,6 +14,25 @@ import { BookService } from './services/book.service';
 import { AdvancedSearchComponent } from './components/advancesearch/advancesearch.coponent';
 import { HttpModule } from '@angular/http';
 import { UserProfileComponent } from './components/userprofile/userprof.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { BookdetailsComponent } from './components/bookdetails/bookdetails.component';
+import { TestbookComponent } from './components/testbook/testbook.component';
+
+
+//firebase imports
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+import {AngularFireDatabase} from 'angularfire2/database';
+import 'firebase/auth';
+
+export const firebaseConfig={
+  apiKey: "AIzaSyDHuoMFJSYSjdySRnhltK46lwxliS6PE64",
+  authDomain: "bookify-becab.firebaseapp.com",
+  databaseURL: "https://bookify-becab.firebaseio.com",
+  projectId: "bookify-becab",
+  storageBucket: "",
+  messagingSenderId: "96961588980"
+}
 
 const approutes:Routes = [
   {
@@ -37,12 +56,24 @@ const approutes:Routes = [
     path: 'userprofile',
     component: UserProfileComponent
   },
+  {
+    path: 'bk',
+    component:BookdetailsComponent
+  },
+  {
+    path: 'testbook',
+    component:  TestbookComponent
+  },
   {  
     path:'dashboard',
     canActivate: [AuthguardGuard],
     component: DashboardComponent
 
   }
+  /*{
+    path: 'main',
+    component: AppComponent
+  }*/
 ]
  
 
@@ -55,15 +86,20 @@ const approutes:Routes = [
     DashboardComponent,
     SignupformComponent,
     SearchbookComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NavbarComponent,
+    BookdetailsComponent,
+    TestbookComponent
   ],
   imports: [
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(approutes)
   ],
-  providers: [UserService,AuthguardGuard,BookService],
+  providers: [AngularFireAuthModule,UserService, AngularFireDatabase,AuthguardGuard,BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

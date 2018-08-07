@@ -9,3 +9,14 @@ a{
 
 }
 
+.badge-info{
+    padding: 10px;
+    font-size: 30px;
+}
+button{
+    margin-bottom: 3px;
+}
+.card{
+    margin-top:5px;
+} 
+
