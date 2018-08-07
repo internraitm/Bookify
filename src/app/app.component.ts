@@ -16,15 +16,9 @@ export class AppComponent implements OnInit {
     this.router = router;
   }
 
-  login() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then((success)=>{
-      this.router.navigate(['userprofile']);
-    });
-  }
-
   logout() {
     this.afAuth.auth.signOut().then((success)=>{
-      this.router.navigate(['signup']);
+      this.router.navigate(['']);
     });;
   }
 
