@@ -1,0 +1,65 @@
+
+<h2>Advanced Search</h2>
+
+<div class='container'>
+    <form (ngSubmit)='search(mybook);bookform.reset();' #bookform='ngForm'>
+
+        <div>
+            <label for='bookcategory'>Category</label>
+            <select [(ngModel)]='mybook.bookcategory' name='category' #category='ngModel' 
+                id='bookcategory' class='form-control'>
+                <option>-Select-</option>
+                <option>Biography</option>
+                <option>Computer</option>
+                <option>Children</option>
+                <option>Fiction</option>
+                <option>Film</option>
+                <option>Health</option>
+                <option>Non-Fiction</option>
+                <option>History</option>
+                <option>Current Affairs</option>
+            </select>
+        </div>
+            
+        <div>
+            <label for='bookname'>Book Name</label>
+                <input type='text' [(ngModel)]='mybook.bookname' name='name' #name='ngModel' 
+                id='bookname' class='form-control'  required/>
+                <div [hidden]='name.valid || name.pristine'>
+                    <p>Name is mandatory</p>
+                </div>
+        </div>
+            
+        <div>
+            <label for='bookauthor'>Book Author</label>
+                <input type='text' [(ngModel)]='mybook.bookauthor' name='author' #author='ngModel' 
+                id='bookauthor' class='form-control'  required/>
+                <div [hidden]='author.valid || author.pristine'>
+                    <p>Author is mandatory</p>
+                </div>
+        </div>
+
+        <div>
+            <label for='bookpublisher'>Book Publisher</label>
+                <input type='text' [(ngModel)]='mybook.bookpublisher' name='publisher' #publisher='ngModel' 
+                id='bookpublisher' class='form-control'  required/>
+                <div [hidden]='publisher.valid || publisher.pristine'>
+                    <p>Publisher is mandatory</p>
+                </div>
+        </div>
+
+        <div>
+            <label for='bookisbn'>ISBN Number</label>
+            <input type='number' [(ngModel)]='mybook.isbn' name='isbn' #isbn='ngModel' class='form-control' 
+            id='bookisbn' required/>
+            <div [hidden]='isbn.valid || isbn.pristine'>
+                <p>ISBN Number is mandatory</p>   
+            </div>
+        </div>
+        
+        <br/><br/>
+
+        <button class='btn btn-success' [disabled]='!bookform.form.valid'>Submit</button>
+    </form>
+</div>
+<br/><br/>

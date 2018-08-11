@@ -1,0 +1,30 @@
+<div class= "col-sn-8 col-sm-offset-2">
+
+  <h3>Sign Up</h3>
+  <form (ngSubmit) = 'submit();signupform.reset()'  #signupform = 'ngForm'>
+    
+    <div class = 'form-group'>
+
+      <label for ='name'>Name</label> <br/>
+    <input type = 'text' required [(ngModel)] = 'user.name' name='name' id = 'name' #name = 'ngModel' class = "form-control"/>
+    
+    </div>    
+    <div class = 'form-group'>
+      <label for ='email'>Email</label> <br/>
+      <input required type = 'email' [(ngModel)] = 'user.email' name='email' id = 'email' #email = 'ngModel'class = "form-control" />
+</div>
+<div class = 'form-group'>
+
+  <label for ='password'>Password</label> <br/>
+  <input required type = 'password' [(ngModel)] = 'user.password' name='password' id = 'password' #password = 'ngModel' class = "form-control" />
+  </div>
+  <div class = 'form-group'>
+
+    <label for ='contactno'>Contact No.</label> <br/>
+    <input required type = 'number' [(ngModel)] = 'user.contactno' name='contactno' id = 'contactno' #contactno = 'ngModel' class = "form-control" />
+  </div>   
+<br/>
+
+<button class  = " btn btn-success" [disabled] = '!signupform.form.valid'>Sign Up</button> 
+</form>
+</div>
