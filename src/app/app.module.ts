@@ -17,7 +17,7 @@ import { UserProfileComponent } from './components/userprofile/userprof.componen
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BookdetailsComponent } from './components/bookdetails/bookdetails.component';
 import { TestbookComponent } from './components/testbook/testbook.component';
-
+import { TestUserComponent } from './components/test-user/test-user.component';
 
 //firebase imports
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -64,6 +64,10 @@ const approutes:Routes = [
     path: 'testbook',
     component:  TestbookComponent
   },
+  {
+    path: 'tstuser',
+    component:  TestUserComponent
+  },
   {  
     path:'dashboard',
     canActivate: [AuthguardGuard],
@@ -89,7 +93,8 @@ const approutes:Routes = [
     UserProfileComponent,
     NavbarComponent,
     BookdetailsComponent,
-    TestbookComponent
+    TestbookComponent,
+    TestUserComponent
   ],
   imports: [
     AngularFireAuthModule,
