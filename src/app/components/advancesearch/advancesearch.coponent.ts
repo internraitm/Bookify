@@ -20,7 +20,7 @@ export class AdvancedSearchComponent{
 
     search(b:Book){
         
-        this.found = this.bookserv.search(b);
+        //this.found = this.bookserv.search(b);
         console.log(b.id,b.bookcategory,b.bookname,b.bookauthor,b.bookpublisher,b.isbn);
         if(this.found){
             console.log(b.id,b.bookcategory,b.bookname,b.bookauthor,b.bookpublisher,b.isbn);

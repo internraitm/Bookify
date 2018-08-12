@@ -57,7 +57,7 @@ const approutes:Routes = [
     component: UserProfileComponent
   },
   {
-    path: 'bk',
+    path: 'book/:key',
     component:BookdetailsComponent
   },
   {

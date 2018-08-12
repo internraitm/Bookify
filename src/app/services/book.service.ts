@@ -1,4 +1,4 @@
-import { Book } from '../models/Book/book';
+import { Book } from '../models/TestBook/book';
 import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
@@ -41,11 +41,7 @@ export class BookService{
    //Function to add books to the db
    addBook(book:Book){
 
-    this.bookList.push({
-     bookname:book.bookname,
-     bookauthor:book.bookauthor,
-     bookpublisher:book.bookpublisher,
-    })
+    this.bookList.push(book);
  
    }
 
@@ -67,6 +63,30 @@ export class BookService{
  
   }
 
+  //Function to get single book
+  getBook(key:string){
+      console.log("Service called");
+    this.bookList = this.af.list('books');
+    this.bookList.snapshotChanges().subscribe( books  => {
+        this.bookarr = [];
+        books.forEach(book => {
+          var y =book.payload.toJSON();
+          y["$key"] = book.key;
+          this.bookarr.push(y as Book);
+        });
+
+        for(var i = 0 ;i<this.bookarr.length;i++){
+            if(this.bookarr[i].$key == key){
+                console.log(this.bookarr[i]);
+                return this.bookarr[i];
+            }
+
+        }
+        return null;
+    });
+
+
+  }
   
     search(b:Book){
         for(var i=0;i<this.bookarr.length;i++){
