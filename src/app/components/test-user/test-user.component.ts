@@ -5,13 +5,12 @@ import { User } from '../../models/User/user';
 
 @Component({
   selector: 'app-test-user',
-  templateUrl: './test-user.component.html',
-  //styleUrls: ['./test-user.component.css']
+  templateUrl: './test-user.component.html'
 })
 export class TestUserComponent implements OnInit {
 
   users:User[];
-  u =  new User("kunal","heman@bookify.com","ihavethepower",5656565656,'');
+  u =  new User("kunal","heman@bookify.com","ihavethepower",5656565656,"zzz");
   constructor(public userserv : UserService) { }
 
   ngOnInit() {

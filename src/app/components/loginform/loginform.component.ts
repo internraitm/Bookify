@@ -19,7 +19,7 @@ user:User;
   constructor( router:Router , public us:UserService, public afAuth: AngularFireAuth) {
     this.router = router;
     this.userServ = us ;
-    this.user = new User('','','',null,'');
+    this.user = new User('','','',null,null);
     }
 
     login_google() {
@@ -61,13 +61,11 @@ user:User;
     var password =this.user.password;
     
     this.userServ.login(email,password);
-
     //console.log(email + password);
     
     if (email == 'admin@gmail.com' && password == 'admin'){
       this.userServ.setUserLoggedIn();
       this.router.navigate(['dashboard']);
-
     }
   }*/
 

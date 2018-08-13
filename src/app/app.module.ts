@@ -16,15 +16,15 @@ import { HttpModule } from '@angular/http';
 import { UserProfileComponent } from './components/userprofile/userprof.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BookdetailsComponent } from './components/bookdetails/bookdetails.component';
+import { TestbookComponent } from './components/testbook/testbook.component';
+import { TestUserComponent } from './components/test-user/test-user.component';
 
 //firebase imports
-
-import { TestbookComponent } from './components/testbook/testbook.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import {AngularFireDatabase} from 'angularfire2/database';
 import 'firebase/auth';
-import { TestUserComponent } from './components/test-user/test-user.component';
+
 
 //searchbook imports
 import { ReactiveFormsModule } from '@angular/forms';
@@ -64,7 +64,7 @@ const approutes:Routes = [
     component: UserProfileComponent
   },
   {
-    path: 'bk',
+    path: 'book/:key',
     component:BookdetailsComponent
   },
   {
