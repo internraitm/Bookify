@@ -4,17 +4,6 @@ import {Book} from '../../models/TestBook/book';
 
 @Component({
   selector: 'app-testbook',
-<<<<<<< HEAD
-  templateUrl: './testbook.component.html',
-  //styleUrls: ['./testbook.component.css']
-})
-export class TestbookComponent implements OnInit {
-  books:Book[];
-  b =  new Book("jk","hk","kl");
-  constructor(public bkserv : BookService) { }
-
-  ngOnInit() {
-=======
   templateUrl: './testbook.component.html'
 })
 export class TestbookComponent implements OnInit {
@@ -26,7 +15,6 @@ export class TestbookComponent implements OnInit {
   ngOnInit() {
     this.getBooks();
     console.log(this.books);
->>>>>>> a1ca86f38bbeeed34d6f4c0abf621230c4e1221c
   }
 
   //Function to get all books
@@ -40,19 +28,11 @@ export class TestbookComponent implements OnInit {
         this.books.push(y as Book);
       });
       console.log(this.books);
-<<<<<<< HEAD
-      console.log(this.books[0]);
-    });
-  }
-  //Function to add book
- /*        addBook(){
-=======
     });
   }
 
   //Function to add book
   addBook(){
->>>>>>> a1ca86f38bbeeed34d6f4c0abf621230c4e1221c
     //console.log(this.b);
     this.bkserv.addBook(this.b);
     
@@ -67,10 +47,6 @@ export class TestbookComponent implements OnInit {
   //Function to update book
   updateBook(){
     this.bkserv.editBook('-LJ52D6-cg-a6-wa4oj8',this.b);
-<<<<<<< HEAD
-  }   */
-  
-=======
   }
   
   getBook(key){
@@ -83,7 +59,6 @@ export class TestbookComponent implements OnInit {
 
   }
   }
->>>>>>> a1ca86f38bbeeed34d6f4c0abf621230c4e1221c
   
 
 }
