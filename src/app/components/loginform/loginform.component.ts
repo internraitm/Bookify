@@ -19,7 +19,7 @@ user:User;
   constructor( router:Router , public us:UserService, public afAuth: AngularFireAuth) {
     this.router = router;
     this.userServ = us ;
-    this.user = new User('','','',null);
+    this.user = new User('','','',null,'');
     }
 
     login_google() {
@@ -31,6 +31,8 @@ user:User;
     login(){
       firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password).then((success)=>{
         this.router.navigate(['userprofile']);
+
+       // sessionStorage.setItem('key', 'value');
       })
       .catch(function(error) {
         // Handle Errors here.
@@ -45,11 +47,11 @@ user:User;
       });
     }
   
-    logout() {
+    /*logout() {
       this.afAuth.auth.signOut().then((success)=>{
         this.router.navigate(['signup']);
       });;
-    }
+    }*/
   
   ngOnInit() {
   }

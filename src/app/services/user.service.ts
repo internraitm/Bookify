@@ -2,19 +2,28 @@ import { Injectable } from '@angular/core';
 //import { Http, Response } from '@angular/http';  
 //import {Observable} from 'rxjs';
 //import 'rxjs/add/operator/map'; 
+import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { User } from '../models//User/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  userList:AngularFireList<any>;
   endPoint :string;
+  myuser:User;
+  userarr:User[];
 
   private isUserLoggedIn;
 
-  constructor() {
+  constructor(public af : AngularFireDatabase) {
     //this.endPoint = "http://localhost:5001/books";
     this.isUserLoggedIn = false;
+    this.userarr = []; 
+
+    this.userList = this.af.list('users');
+
    }
 
    /*search(term: string): Observable<any[]> {  
@@ -40,7 +49,51 @@ export class UserService {
       console.log(email+password);
     }
 
-  
+    getUsers(){
 
+      this.userList = this.af.list('users');
+      return this.userList;
   
+     }
+  
+     //Function to add Users to the db
+     addUser(user:User){
+  
+      this.userList.push({
+        Username : user.name,
+        Useremail : user.email,
+        Userpassword : user.password,
+        Usercontactno : user.contactno 
+      })
+   
+     }
+  
+     //Function to delete user
+     deleteUser($key){
+  
+      this.userList.remove($key);
+  
+    }
+  
+    //Function to update book
+    editUser(key,user:User){
+  
+      this.userList.update(key,{
+        Username : user.name,
+        Useremail : user.email,
+        Userpassword : user.password,
+        Usercontactno : user.contactno 
+      });
+   
+    }
+  
+    
+    search(u:User){
+        for(var i=0;i<this.userarr.length;i++){
+            if(this.userarr[i].name == u.name && 
+            this.userarr[i].email == u.email && this.userarr[i].contactno == u.contactno){
+               return true;
+            }
+        }
+    }
 }

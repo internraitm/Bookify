@@ -21,7 +21,7 @@
             <hr>
             <h5>My Stuff</h5>
             <div class="btn-group-vertical">  
-                    <button (click)='favBooks()' class="btn btn-primary"  >List Favorite Books</button>
+                    <button (click)='favBooks()' class="btn btn-primary"   >List Favorite Books</button>
                     <button (click)='reqBooks()' class="btn btn-primary"  >Requested Books</button>
                     <button (click)='bookOrders()' class="btn btn-primary"  >My Orders</button>
             </div>
@@ -42,7 +42,7 @@
 
 
 
-                    <div *ngIf='lstflag' class="table-responsive">
+                    <div *ngIf='lstflag' class="table-responsive" >
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-light">
                                 <tr>
@@ -54,7 +54,7 @@
                                 </tr>
                                     
                                 </thead>
-                                <tr *ngFor='let b of bookarr'>
+                                <tr *ngFor='let b of favbooks'>
                                     <td>{{b.id}}</td>
                                     <td>{{b.bookname}}</td>
                                     <td>{{b.bookauthor}}</td>

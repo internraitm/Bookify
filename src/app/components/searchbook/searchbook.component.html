@@ -13,60 +13,136 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body> 
+        <!--form class="example-form">
+                <div class="example-full-width">
+                  <input type="text" placeholder="Select Book" aria-label="Books"  [formControl]="myControl" [ngModel]="auto">
+                    <div *ngFor="let option of bookarr | async" [value]="option">
+                      {{option.bookname}}
+                    </div>
+                  </div>
+              </form-->
+           
+              <input #txtFname placeholder="Select Book" [(ngModel)]="find"/>
+              <div *ngFor="let item of booklist" >
+                  <div *ngIf= "checkValue(find,item)" >
+                   {{item}}
+                </div>
+            </div>
+    <div class="container">
+  
+            <div class="card-deck">
+                  <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                          </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                              <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                              </div>
+                            </div><div class="card" style="width: 18rem;">
+                                  <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                  </div>
+                                </div><div class="card" style="width: 18rem;">
+                                      <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="card-link">Card link</a>
+                                        <a href="#" class="card-link">Another link</a>
+                                      </div>
+                                    </div>
+            </div>
+          </div> 
+          
+
+        <div>
+                <app-footer></app-footer>
+        </div>
+            
+</body>
+</html>          
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+                <!--input id='search' placeholder="Search for a book" formControlName='search' [(ngModel)] = "term"  class=' input-underline search-bar ' type='text'>
+            </form>
+            <div clickOutside (clickOutside)="closeDropDown()">
+                <div *ngIf='showDropDown' class='search-drop-down '>
+                    <div (click)='selectValue(s)' class='search-results' *ngFor=' let s of bookarr | filter : term '>
+                  {{s.bookname}}
+                      <!-- <a [innerHTML]="s | letterBold: getSearchValue()">
+                               {{s}}
+                        </a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=' width-25 '></div>
+    <main>
+        <div class='flex-container card-container flex-wrap flex-center '>
+            <div class='flex-container card-dimensions card flex-center width-100 ' *ngFor=' let s of bookarr | filter : term '>
+                <div class=' width-5 '></div>
+                {{s.bookname}}
+                <div class='width-5 '></div>
+            </div>
+        </div>
+    </main> -->
 
     
-    
-  
-        <div class="input-group md-form form-sm form-2 pl-0">
-                <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search">
+ 
+        <!--div class="input-group md-form form-sm form-2 pl-0">
+                 
+        <!--input class="form-control my-0 py-1 lime-border"  type="text" placeholder="Search" (click)="getBooks()" [(ngModel)] = "term"  aria-label="Search">
+                <div  class = "bookarr" *ngFor = " let item of bookarr | filter:term " >
+                 <p>{{item.bookname}}</p>
+                </div> 
+                </div>
+                
+            
+        
+                
                 <div class="input-group-append">
                     <span class="input-group-text lime lighten-2" id="basic-text1"><i class="fa fa-search text-grey"></i></span>
-                </div>
-            </div> 
- 
-<div class="container">
-  
-  <div class="card-deck">
-        <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
-                  </div><div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
-                        </div>
-                      </div><div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="card-link">Card link</a>
-                              <a href="#" class="card-link">Another link</a>
-                            </div>
-                          </div>
-  </div>
-</div>
+                </div> 
+             
+               
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
 
-<div>
-    <app-footer></app-footer>
-  </div>
-
-</body>
-</html>
+                <div *ngFor = " let item of bookarr | filter:term "  >
+                  {{item.bookname}}
+                  {{item.isbn}}
+                 </div--> 
