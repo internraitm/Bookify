@@ -21,7 +21,7 @@ export class SignupformComponent implements OnInit {
 
   constructor( public afAuth: AngularFireAuth,router:Router) {
     this.router = router;
-    this.user = new User('','','',null);
+    this.user = new User('','','',null,null);
   }
 
   ngOnInit() {

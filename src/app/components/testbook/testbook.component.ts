@@ -4,15 +4,17 @@ import {Book} from '../../models/TestBook/book';
 
 @Component({
   selector: 'app-testbook',
-  templateUrl: './testbook.component.html',
-  styleUrls: ['./testbook.component.css']
+  templateUrl: './testbook.component.html'
 })
 export class TestbookComponent implements OnInit {
   books:Book[];
-  b =  new Book("jk","hk","kl");
+  currentBook:Book;
+  b =  new Book("Wolf Hall","	Hilary Mantel","Fourth Estate","978-0-00-735355-2","651",true,"Fiction");
   constructor(public bkserv : BookService) { }
 
   ngOnInit() {
+    this.getBooks();
+    console.log(this.books);
   }
 
   //Function to get all books
@@ -26,7 +28,6 @@ export class TestbookComponent implements OnInit {
         this.books.push(y as Book);
       });
       console.log(this.books);
-      console.log(this.books[0]);
     });
   }
 
@@ -48,6 +49,16 @@ export class TestbookComponent implements OnInit {
     this.bkserv.editBook('-LJ52D6-cg-a6-wa4oj8',this.b);
   }
   
+  getBook(key){
+    for(var i = 0 ;i<this.books.length;i++){
+      if(this.books[i].$key == key){
+          //console.log(this.books[i]);
+           this.currentBook=this.books[i];
+           console.log(this.currentBook);
+      }
+
+  }
+  }
   
 
 }
