@@ -18,8 +18,10 @@ export class SignupformComponent implements OnInit {
   router:Router;
   user:User;
   userServ:UserService;
+  flag:boolean;
 
   constructor( public afAuth: AngularFireAuth,router:Router) {
+    this.flag = false;
     this.router = router;
     this.user = new User('','','',null,null);
   }
@@ -39,7 +41,14 @@ export class SignupformComponent implements OnInit {
 
   submit(){
 
-    firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
+    firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password).
+    then((user)=>{
+      this.flag = user.additionalUserInfo.isNewUser;
+      console.log(this.flag);
+      if(this.flag){
+        this.router.navigate(['userinfo']);
+      }
+    })
     .catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;

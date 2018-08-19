@@ -1,9 +1,6 @@
 import { Book } from '../models/TestBook/book';
 import { Injectable } from '@angular/core';
-
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import {Observable} from 'rxjs';
-
 // import { Http,Response } from '@angular/http';
 // import { map } from 'rxjs/operators';
 
@@ -11,7 +8,6 @@ import {Observable} from 'rxjs';
 export class BookService{
 
     bookList:AngularFireList<any>;
-
     mybook:Book;
     bookarr:Book[];
     favbooks:Book[];
@@ -97,9 +93,7 @@ export class BookService{
             }
         }
     }
-   
-   
-   /* favBook()
+    favBook()
     {
         for(var i=0;i<this.bookarr.length;i++){
           //  console.log("entered for:"+this.bookarr[i].favbook);
@@ -116,7 +110,6 @@ export class BookService{
         //console.log("eof:"+this.bookarr.slice());
 
     }
-    */
 }
 
 

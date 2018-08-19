@@ -17,8 +17,38 @@ export class BookdetailsComponent implements OnInit {
   currentBook:Book;
   constructor(private route: ActivatedRoute,public bkserv : BookService) { 
     this.currentBook = null;
+    /*this.route.params.subscribe( params => {
+      if(params['key']){
+        console.log(params['key']);
+        this.paramKey = params['key'];
+        console.log(this.paramKey);
+        var x = this.bkserv.getBooks();
+        x.snapshotChanges().subscribe( books =>{
+          this.books = [];
+          books.forEach(book => {
+            var y =book.payload.toJSON();
+            y["$key"] = book.key;
+            this.books.push(y as Book);
+          });
+          console.log(this.books);
+          for(var i = 0 ;i<this.books.length;i++){
+            if(this.books[i].$key == this.paramKey){
+                //console.log(this.books[i]);
+                 this.currentBook=this.books[i];
+                 console.log(this.currentBook);
+            }
+
+        }
+        });
+        
+      }
+    })
+    */  
+  }
+  display(){
     this.route.params.subscribe( params => {
       if(params['key']){
+        console.log(params['key']);
         this.paramKey = params['key'];
         console.log(this.paramKey);
         var x = this.bkserv.getBooks();
@@ -48,6 +78,7 @@ export class BookdetailsComponent implements OnInit {
     this.description = false;
     this.author = false;
     this.review = false;
+    this.display();
   }
 
 

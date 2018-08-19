@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { User } from '../models//User/user';
 
+import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,14 +16,15 @@ export class UserService {
   endPoint :string;
   myuser:User;
   userarr:User[];
+  router:Router;
 
   private isUserLoggedIn;
 
-  constructor(public af : AngularFireDatabase) {
+  constructor(public af : AngularFireDatabase, router:Router) {
     //this.endPoint = "http://localhost:5001/books";
     this.isUserLoggedIn = false;
     this.userarr = []; 
-
+    this.router=router;
     this.userList = this.af.list('users');
 
    }
@@ -31,6 +34,15 @@ export class UserService {
     .map((r: Response) => { return (r.json().length != 0 ? r.json() : [{ "bookId": 0, "bookname": "No Record Found" }]) as any[] });  
     return bookList;  
 }  */
+
+  session(){
+    var myvar=sessionStorage.getItem("key");
+    console.log(myvar);
+    if(myvar==null){
+      this.router.navigate(['']);
+    }
+    return myvar;
+  }
 
    setUserLoggedIn(){
      this.isUserLoggedIn = true;
@@ -60,10 +72,10 @@ export class UserService {
      addUser(user:User){
   
       this.userList.push({
-        Username : user.name,
-        Useremail : user.email,
-        Userpassword : user.password,
-        Usercontactno : user.contactno 
+        name : user.name,
+        email : user.email,
+        password : user.password,
+        contactno : user.contactno 
       })
    
      }

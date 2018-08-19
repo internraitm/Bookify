@@ -50,7 +50,7 @@
 
         <div>
             <label for='bookisbn'>ISBN Number</label>
-            <input type='number' [(ngModel)]='mybook.isbn' name='isbn' #isbn='ngModel' class='form-control' 
+            <input type='text' [(ngModel)]='mybook.isbn' name='isbn' #isbn='ngModel' class='form-control' 
             id='bookisbn' required/>
             <div [hidden]='isbn.valid || isbn.pristine'>
                 <p>ISBN Number is mandatory</p>   
