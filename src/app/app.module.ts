@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
 import { LoginformComponent } from './components/loginform/loginform.component';
@@ -16,21 +16,15 @@ import { HttpModule } from '@angular/http';
 import { UserProfileComponent } from './components/userprofile/userprof.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BookdetailsComponent } from './components/bookdetails/bookdetails.component';
-import { TestbookComponent } from './components/testbook/testbook.component';
+//import { TestbookComponent } from './components/testbook/testbook.component';
 import { TestUserComponent } from './components/test-user/test-user.component';
+import { UserinfoComponent } from './components/userinfo/userinfo.component';
 
 //firebase imports
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import {AngularFireDatabase} from 'angularfire2/database';
 import 'firebase/auth';
-
-
-//searchbook imports
-import { ReactiveFormsModule } from '@angular/forms';
-import { ClickOutsideDirective } from './components/searchbook/dropdown.directive';
-import { SearchFilterPipe } from './components/searchbook/filter-pipe';
-//import { LetterBoldPipe } from './components/searchbook/letter-bold.pipe';
 
 export const firebaseConfig={
   apiKey: "AIzaSyDHuoMFJSYSjdySRnhltK46lwxliS6PE64",
@@ -59,6 +53,10 @@ const approutes:Routes = [
     path: 'advancesearch',
     component: AdvancedSearchComponent
   },
+  /*{
+    path: 'bk',
+    component:BookdetailsComponent
+  },*/
   {
     path: 'userprofile',
     component: UserProfileComponent
@@ -67,13 +65,17 @@ const approutes:Routes = [
     path: 'book/:key',
     component:BookdetailsComponent
   },
-  {
+  /*{
     path: 'testbook',
     component:  TestbookComponent
-  },
+  },*/
   {
     path: 'tstuser',
     component:  TestUserComponent
+  },
+  {
+    path: 'userinfo',
+    component:UserinfoComponent
   },
   {  
     path:'dashboard',
@@ -90,6 +92,7 @@ const approutes:Routes = [
 
 @NgModule({
   declarations: [
+    UserinfoComponent,
     AppComponent,
     AdvancedSearchComponent,
     LoginformComponent,
@@ -100,11 +103,8 @@ const approutes:Routes = [
     UserProfileComponent,
     NavbarComponent,
     BookdetailsComponent,
-    TestbookComponent,
-    TestUserComponent,
-    ClickOutsideDirective,
-    SearchFilterPipe,
-    //LetterBoldPipe
+    //TestbookComponent,
+    TestUserComponent
   ],
   imports: [
     AngularFireAuthModule,
@@ -112,12 +112,9 @@ const approutes:Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule,
     RouterModule.forRoot(approutes)
   ],
   providers: [AngularFireAuthModule,UserService, AngularFireDatabase,AuthguardGuard,BookService],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  
- }
+export class AppModule { }

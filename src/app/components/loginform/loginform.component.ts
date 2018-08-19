@@ -25,6 +25,9 @@ user:User;
     login_google() {
       this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then((success)=>{
         this.router.navigate(['userprofile']);
+        var email=firebase.auth().currentUser.email;
+        sessionStorage.setItem('key', email);
+        
       });
     }
 
@@ -32,7 +35,7 @@ user:User;
       firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password).then((success)=>{
         this.router.navigate(['userprofile']);
 
-       // sessionStorage.setItem('key', 'value');
+        sessionStorage.setItem('key', this.user.email);
       })
       .catch(function(error) {
         // Handle Errors here.

@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
   logout() {
     this.afAuth.auth.signOut().then((success)=>{
       this.router.navigate(['']);
+      sessionStorage.removeItem("key");
+      sessionStorage.clear();
     });;
   }
 
